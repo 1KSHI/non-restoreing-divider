@@ -1,29 +1,16 @@
 module top(
     input clk,
     input rst,
-    // input [11:0]mula,
-    // input [11:0]mulb,
-    output [24:0] res
-);
-reg [11:0]mula;
-reg [11:0]mulb;
-
-Wallace12x12 Wallace12x12 (
-    .x_in(mula),
-    .y_in(mulb),
-    .result_out(res)
+    input  [11:0] dividend,
+    input  [7:0] divisor,
+    input start,
+    output [11:0] quotient,
+    output [7:0] remainder
 );
 
-// assign res = mula * mulb;
+wire done;
 
-always @(posedge clk) begin
-    if (rst) begin
-        mula <= 0;
-        mulb <= 0;
-    end else begin
-        mula <= mula + 2;
-        mulb <= mulb + 1;
-    end
-end
+divider divider(clk,rst,start,dividend,done,quotient);
+
 
 endmodule

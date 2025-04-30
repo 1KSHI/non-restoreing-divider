@@ -1,6 +1,6 @@
 # 0.verilator export：
 VERILATOR = $(VERILATOR_ROOT)/bin/verilator
-
+TCL_SCRIPT = $(PROJ_PATH)/top.tcl
 # 1.files info:
 PROJ_PATH = $(shell pwd)
 VSRCS += $(shell find $(abspath ./vsrc) -name "*.v" -not -path "$(abspath ./vsrc/tb)/*")

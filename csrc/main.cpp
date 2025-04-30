@@ -7,31 +7,17 @@ Vtop* top;
 
 int main(int argc, char *argv[]) {
     sim_init();
+    
     reset(1);
-    int count=0;
-    int success=0;
-
-    for(int i=0; i<4096; i=i+3) {
-        for(int j=0; j <4096 ; j=j+3){
-            int mula = i;
-            int mulb = j;
-            int res = mula * mulb;
-            top->mula = mula;
-            top->mulb = mulb;
-            printf("i: %d, j: %d\n", i, j);
-            top->eval();
-            if(top->res != res) {
-                printf("Error: Expected %d, got %d\n", res, top->res);
-            } else {
-                //printf("Success: Expected %d, got %d\n", res, top->res);
-                success++;
-            }
-            cycle(1);
-            count++;
-        }
-    }
-    printf("total test %d, success %d, correct rate %d %%\n", count, success,success*100/count);
-
+    float num = 30;
+    int num_int = (int)num;
+    top->dividend = num;
+    top->start = 1;
+    
+    printf("D = %d\n", num_int);
+    cycle(20);
+    printf("1/D = %f\n", top->quotient/pow(2,12));
+    printf("true = %f\n", 1/num);
     sim_exit();
 
     return 0;

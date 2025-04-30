@@ -1,5 +1,5 @@
 #include "include/tb_common.h"
-
+#define CONFIG_WAVETRACE 1
 
 extern VerilatedContext* contextp;
 extern VerilatedVcdC* tfp;
