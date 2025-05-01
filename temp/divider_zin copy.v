@@ -5,32 +5,22 @@ module divider(
     input wire clk,
     input wire rst,
     input wire start,
-    input wire [11:0] x_in,       // 输入数x，Q8.8格式
+    input wire [11:0] z_in,
+    input wire [11:0] x_in,
     output reg done,
-    output reg [11:0] y_out       // 输出1/x，Q8.8格式
+    output wire [23:0] res_out,
+    output reg [11:0] y_out
 );
-
+  
   reg [`INT+`FLO-1:0] x, y;
   reg [3:0] iter;
   reg running;
 
-  wire [23:0] xy;  
-  Wallace12x12 wallace_1(
-      .x_in(x[13:2]),
-      .y_in(y[13:2]),
-      .result_out(xy)
-  );
-
-  // Q8.8 * Q8.8 = Q16.16
-  wire [`INT+`FLO-1:0] xy_shift = {xy[11:0],2'b0};          // 舍弃高位，取Q8.8结果
-  wire [`INT+`FLO-1:0] two_minus_xy = `SIZE'h2000 - xy_shift;  // 2 - x*y, 2 in Q8.8 is 0x0200
-  wire [23:0] y_next_full;      // y*(2 - x*y)
-  Wallace12x12 wallace_2(
-      .x_in(y[13:2]),
-      .y_in(two_minus_xy[13:2]),
-      .result_out(y_next_full)
-  );
-  wire [`INT+`FLO-1:0] y_next = y_next_full[21:8];          // Q8.8
+  wire [27:0] xy = x * y;
+  wire [`INT+`FLO-1:0] xy_shift = xy[15:2];
+  wire [`INT+`FLO-1:0] two_minus_xy = `SIZE'h2000 - xy_shift;
+  wire [27:0] y_next_full = y * two_minus_xy;
+  wire [`INT+`FLO-1:0] y_next = y_next_full[25:12];
 
   always @(posedge clk or posedge rst) begin
       if (rst) begin
@@ -49,11 +39,13 @@ module divider(
       end else if (running) begin
           y <= y_next;
           iter <= iter + 1;
-          if (iter == 3) begin  // 迭代4次
+          if (iter == 4) begin  // 迭代4次
               y_out <= y_next[11:0];
               done <= 1;
               running <= 0;
           end
       end
   end
+
+  assign res_out = y_out*z_in;
 endmodule

@@ -5,7 +5,6 @@ extern VerilatedContext* contextp;
 extern VerilatedVcdC* tfp;
 extern Vtop* top;
 
-
 void step_wave(){
   top->eval();
   contextp->timeInc(1);

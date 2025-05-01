@@ -17,6 +17,7 @@ module divider(
   wire [27:0] y_next_full = y * two_minus_xy;      // y*(2 - x*y) Q2.12
   wire [13:0] y_next = y_next_full[25:12];          // Q2.12
 
+
   always @(posedge clk or posedge rst) begin
       if (rst) begin
           y_out <= 0;
