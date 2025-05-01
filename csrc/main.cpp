@@ -9,20 +9,7 @@ VerilatedContext* contextp = NULL;
 VerilatedVcdC* tfp = NULL;
 Vtop* top;
 
-int main(int argc, char *argv[]) {
-    sim_init();
-    
-    reset(1);
-    // float a = 8043;
-    // float b = 8192;
-    // top->dividend =8043;
-    // top->divisor = 8192;
-    // top->start = 1;
-    // cycle(15);
-    // printf("quotient: %f\n", a/b);
-    // printf("quotient: %f\n", top->quotient/pow(2, 11));
-    // printf("error: %f\n", fabs(a/b-top->quotient/pow(2, 11)));
-    // printf("error: %f\n", 1/pow(2, 10));
+void output_test() {
     std::ofstream outfile("output.txt");
     if (!outfile.is_open()) {
         std::cerr << "无法打开文件 output.txt" << std::endl;
@@ -70,7 +57,32 @@ int main(int argc, char *argv[]) {
     // 计算误差的平均值
     double average_error = std::accumulate(errors.begin(), errors.end(), 0.0) / errors.size();
     std::cout << "所有误差的平均值: " << average_error << std::endl;
+}
 
+int main(int argc, char *argv[]) {
+    sim_init();
+    
+    reset(1);
+    top->dividend = 123;
+    top->divisor = 4432;
+    top->start = 1;
+    cycle(1);
+    top->dividend = 3345;
+    top->divisor = 4456;
+    cycle(12);
+
+    double true_value = 123.0 / 4432.0;
+    
+    double approx_value = top->quotient / pow(2, 12);
+    printf("true_value:   %.10f\n", true_value  );
+    printf("approx_value: %.10f\n", approx_value); 
+    printf("approx_valued: %d\n", top->quotient);    
+    cycle(1);
+    true_value = 3345.0 / 4456.0;
+    approx_value = top->quotient / pow(2, 12);
+    printf("true_value:   %.10f\n", true_value  );
+    printf("approx_value: %.10f\n", approx_value);  
+    printf("approx_valued: %d\n", top->quotient); 
     sim_exit();
 
     return 0;
