@@ -8,7 +8,6 @@ vivado*.log vivado*.jou
 .sim/
 user/
 prj/
-temp/
 !*.v
 !*.sv
 !*.cpp
