@@ -5,7 +5,6 @@
             "includePath": [
                 "./build/obj_dir/**",
                 "./csrc/include/**",
-                "./csrc/include/memory/**",
                 "~/KSHI/simulation/verilator/include/**"
             ],
             "defines": [],

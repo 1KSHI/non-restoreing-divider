@@ -1,0 +1,270 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Mon May 12 22:32:02 2025
+# Process ID: 75827
+# Current directory: /home/k-shi/KSHI/IC_proj/Div
+# Command line: vivado -mode batch -source /home/k-shi/KSHI/IC_proj/Div/top.tcl
+# Log file: /home/k-shi/KSHI/IC_proj/Div/vivado.log
+# Journal file: /home/k-shi/KSHI/IC_proj/Div/vivado.jou
+# Running On: kshi-virtual-machine, OS: Linux, CPU Frequency: 2495.259 MHz, CPU Physical cores: 8, Host memory: 8278 MB
+#-----------------------------------------------------------
+source /home/k-shi/KSHI/IC_proj/Div/top.tcl
+# set PROJECT_NAME "rtl_simulation"
+# set TOP_MODULE_SRC "top"
+# set TOP_MODULE_SIM "tb_top"
+# set SRC_DIR "./vsrc"
+# set SIM_DIR "./vsrc/tb"
+# set REPORT_DIR "./reports"
+# set PROJECT_DIR "./vivado_sim"
+# set FPGA_PART "xc7z020clg484-1"
+# set SIM_RESULT "simulation_results.log"
+# set SRC_FILELIST [glob $SRC_DIR/*.v]
+# set SIM_FILELIST [glob $SIM_DIR/*.v]
+# set CLEAN_FILELIST {*.backup.jou *.backup.log *.backup.str}
+# foreach cleanfile $CLEAN_FILELIST {
+#     set files [glob -nocomplain ./$cleanfile]
+#     if {[llength $files] == 0} {
+#         puts "No files found for pattern: $cleanfile"
+#     } else {
+#         foreach file $files {
+#             file delete -force $file
+#             puts "Deleted file: $file"
+#         }
+#     }
+# }
+Deleted file: ./vivado_75367.backup.jou
+Deleted file: ./vivado_75367.backup.log
+No files found for pattern: *.backup.str
+# set SIMWV_EXTLIST {*.wdb *.vcd *.wcfg *.bmp}
+# foreach fileEXT $SIMWV_EXTLIST {
+#     set files [glob -nocomplain $REPORT_DIR/$fileEXT]
+#     if {[llength $files] == 0} {
+#         puts "No files found for pattern: $fileEXT"
+#     } else {
+#         foreach file $files {
+#             file delete -force $file
+#             puts "Deleted file: $file"
+#         }
+#     }
+# }
+No files found for pattern: *.wdb
+No files found for pattern: *.vcd
+Deleted file: ./reports/sim_waveform_behav.wcfg
+No files found for pattern: *.bmp
+# set DIRLIST [list $REPORT_DIR $SRC_DIR $SIM_DIR]
+# foreach dir $DIRLIST {
+#     if {$dir eq ""} {
+#         puts "## Error: One of the directory variables is empty. Aborting..."
+#         exit
+#     }
+#     if {![file isdirectory $dir]} {
+#         if {[catch {file mkdir $dir} result]} {
+#             puts "## Error: Failed to create directory $dir. Reason: $result"
+#         } else {
+#             puts "## Directory $dir created successfully."
+#         }
+#     }
+# }
+# create_project -force $PROJECT_NAME $PROJECT_DIR -part $FPGA_PART
+# foreach file $SRC_FILELIST {
+#     add_files -fileset sources_1 $file
+#     add_files -fileset sim_1 $file
+# }
+# foreach file $SIM_FILELIST {
+#     add_files -fileset sim_1 $file
+# }
+# update_compile_order -fileset sources_1
+# update_compile_order -fileset sim_1
+# set_property top $TOP_MODULE_SRC [get_filesets sources_1]
+# set_property top $TOP_MODULE_SIM [get_filesets sim_1]
+# launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_top'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/k-shi/KSHI/IC_proj/Div/vivado_sim/rtl_simulation.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/opt/Xilinx/Vivado/2023.2/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_top' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/k-shi/KSHI/IC_proj/Div/vivado_sim/rtl_simulation.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj tb_top_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-311] analyzing module CAS
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/k-shi/KSHI/IC_proj/Div/vsrc/tb/tb_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/k-shi/KSHI/IC_proj/Div/vivado_sim/rtl_simulation.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/k-shi/KSHI/IC_proj/Div/vivado_sim/rtl_simulation.sim/sim_1/behav/xsim'
+xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 1. Module top_default doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "/home/k-shi/KSHI/IC_proj/Div/vsrc/top.v" Line 127. Module CAS doesn't have a timescale but at least one module in design has a timescale.
+INFO: [Common 17-14] Message 'XSIM 43-4099' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.CAS
+Compiling module xil_defaultlib.top_default
+Compiling module xil_defaultlib.tb_top
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_top_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/k-shi/KSHI/IC_proj/Div/vivado_sim/rtl_simulation.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_top_behav -key {Behavioral:sim_1:Functional:tb_top} -tclbatch {tb_top.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_top.tcl
+## current_wave_config
+Dividend = 0000000000011, Divisor = 0000000000100, Quotient = 0110000000000
+
+Simulation finished
+$finish called at time : 80 ns : File "/home/k-shi/KSHI/IC_proj/Div/vsrc/tb/tb_top.v" Line 43
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_top_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1380.664 ; gain = 53.293 ; free physical = 311 ; free virtual = 3597
+# if {![file isdirectory $REPORT_DIR]} {
+#     file mkdir $REPORT_DIR
+#     puts "Created directory: $REPORT_DIR"
+# }
+# open_vcd $REPORT_DIR/sim_waveform_behav.vcd
+ERROR: Could not open VCD file ./reports/sim_waveform_behav.vcd for writing.
+# log_vcd /$TOP_MODULE_SIM
+WARNING: [Simtcl 6-216] No such HDL Object /tb_top
+# restart
+INFO: [Wavedata 42-604] Simulation restarted
+ERROR: Could not open VCD file ./reports/sim_waveform_behav.vcd for writing.
+# run all
+Dividend = 0000000000011, Divisor = 0000000000100, Quotient = 0110000000000
+
+Simulation finished
+$finish called at time : 80 ns : File "/home/k-shi/KSHI/IC_proj/Div/vsrc/tb/tb_top.v" Line 43
+# close_vcd
+# save_wave_config $REPORT_DIR/sim_waveform_behav.wcfg
+# stop
+# close_sim
+INFO: [Simtcl 6-16] Simulation closed
+# set sim_log_file "$PROJECT_DIR/${PROJECT_NAME}.sim/sim_1/behav/xsim/simulation_results.log"
+# if {[file exists $sim_log_file]} {
+#     file copy -force $sim_log_file $REPORT_DIR/sim_results_behav.log
+# } else {
+#     puts "Warning: Simulation log file not found at $sim_log_file"
+# }
+Warning: Simulation log file not found at ./vivado_sim/rtl_simulation.sim/sim_1/behav/xsim/simulation_results.log
+# exit
+INFO: [Common 17-206] Exiting Vivado at Mon May 12 22:32:16 2025...

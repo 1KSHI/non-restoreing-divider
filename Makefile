@@ -74,7 +74,7 @@ yos:
 
 # vivado simulation
 vivado:
-	$(VIVADO) -mode batch -source $(TCL_SCRIPT)
+	$(VIVADO_HOME) -mode batch -source $(TCL_SCRIPT)
 
 
 init:
