@@ -14,5 +14,4 @@ prj/
 !*.h
 !*.c
 !/temp/*
-*.vcd 
 *.view
